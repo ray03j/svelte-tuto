@@ -6,20 +6,19 @@
   let { cats } = data;
 
   const fetchCats = async () => {
-+  const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
-+    cats = [...(await res.json())];
-+  }
-+
-+  const onClickRefreshCats = () => {
-+    fetchCats();
-+  }
+    const res = await fetch('https://api.thecatapi.com/v1/images/search?limit=10');
+    cats = [...(await res.json())]
+  }
 
+  const onClickRefreshCats = () => {
+    fetchCats();
+  }
 </script>
 
 <h1>Random cats</h1>
-  +<button on:click={onClickRefreshCats}>
-  +  Refresh cats
-  +</button>
+  <button on:click={onClickRefreshCats}>
+    Refresh cats
+  </button>
 <div class="cats-container">
   <!-- `cats` をループさせます -->
   {#each cats as cat (cat.id)}
